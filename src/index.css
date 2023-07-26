@@ -1,0 +1,19 @@
+:root {
+ --font-family: "Roboto", Helvetica, sans-serif;
+}
+
+body {
+ font-family: var(--font-family);
+ font-weight: 500;
+ position: relative;
+}
+
+* {
+ box-sizing: border-box;
+}
+
+.cardHasHover {
+ &:hover > .contentNoBottom{
+  bottom: 0;
+ }
+}
