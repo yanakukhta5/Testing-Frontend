@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 
-import { Button, Modal } from '@/components'
+import { Button } from '@/components'
+import { AuthModal } from './AuthModal'
 import styles from './Header.module.scss'
 
 export const Header: FC = () => {
@@ -10,11 +11,7 @@ export const Header: FC = () => {
 
    <Button onClick={() => setModalShow(true)}>Sign In</Button>
    
-   { modalShow && <Modal>
-     <div className={styles.modal}>
-      kjhkjhjk
-     </div>
-    </Modal> }
+   { modalShow && <AuthModal open={modalShow} setOpen={setModalShow as () => void} /> }
    
   </header>
  )

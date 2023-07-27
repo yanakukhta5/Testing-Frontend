@@ -1,0 +1,37 @@
+.modal {
+ border-radius: 6px;
+ background: #ffffff;
+ padding: 35px 39px 13px 39px;
+ position: relative;
+}
+
+.close {
+ background-color: transparent;
+ border: none;
+ top: 20px;
+ right: 20px;
+ cursor: pointer;
+ position: absolute;
+}
+
+.title {
+ color: #434343;
+ font-family: var(--font-family);
+ font-size: 36px;
+ font-weight: 500;
+ margin-bottom: 34px;
+ text-align: center;
+}
+
+.form {
+ display: flex;
+ flex-direction: column;
+}
+
+.input {
+ margin-bottom: 25px;
+}
+
+.submit {
+ margin-top: 44px
+}

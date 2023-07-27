@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import style from './App.module.scss'
-import { Header, List } from '@/layouts'
+import { Header, Catalog } from '@/layouts'
 
 export const App: FC = () => {
   return (
@@ -9,7 +9,7 @@ export const App: FC = () => {
       <div className={style.container}>
         <Header />
         
-        <List />
+        <Catalog />
       </div>
     </div>
   )

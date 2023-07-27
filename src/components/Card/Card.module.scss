@@ -1,15 +1,20 @@
 .card {
  --border-radius: 6px;
- max-width: 353px;
  aspect-ratio: 353 / 382;
  overflow: hidden;
  border-radius: var(--border-radius);
  position: relative;
  color: #ffffff;
+
+ &:hover {
+  .text {
+   bottom: 0;
+  }
+ } 
 }
 
 .img {
- object-fit: cover;
+ height: 100%;
 }
 
 .text {

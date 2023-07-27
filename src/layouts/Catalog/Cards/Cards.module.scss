@@ -1,23 +1,18 @@
-.list {
- width: 100%;
- padding: 28px 25px;
- border-radius: 6px;
- background: rgba(255, 255, 255, 0.10);
- box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.05);
- display: grid;
-}
-
 .cards {
  display: grid;
- grid-auto-flow: column;
- grid-template-columns: repeat(3, 1fr);
+ grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
  grid-gap: 25px;
  justify-content: space-between;
- margin-bottom: 50px;
+ margin-bottom: 40px;
 }
 
-.more {
- margin: auto;
+.card {
+ width: min(100%, 350px);
+}
+
+.red {
+ background-color: red;
+ height: 30px;
 }
 
 .comment {

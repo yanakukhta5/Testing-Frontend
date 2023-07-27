@@ -1,2 +1,2 @@
-export { List } from './List'
+export { Catalog } from './Catalog'
 export { Header } from './Header'

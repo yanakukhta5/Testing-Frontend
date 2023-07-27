@@ -1,13 +1,22 @@
 @font-face {
  font-family:'Roboto';
 	src:
+  url('./Roboto/Regular/Robotoregular.woff2') format('woff2'),
+  url('./Roboto/Regular/Robotoregular.woff') format('woff'),
+  url('./Roboto/Regular/Robotoregular.ttf')  format('truetype');
+ font-weight: 400;
+ font-display: fallback;
+}
+
+@font-face {
+ font-family:'Roboto';
+	src:
   url('./Roboto/Medium/RobotoMedium.woff2') format('woff2'),
   url('./Roboto/Medium/RobotoMedium.woff') format('woff'),
   url('./Roboto/Medium/RobotoMedium.ttf')  format('truetype');
  font-weight: 500;
  font-display: fallback;
 }
-
 
 @font-face {
  font-family:'Roboto';
