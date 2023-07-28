@@ -1,7 +1,7 @@
 import { FC, useState, useCallback } from 'react'
-import clsx from 'clsx'
 
 import { auth } from '@/store'
+import { Menu } from './Menu'
 
 import styles from './Avatar.module.scss'
 
@@ -20,11 +20,6 @@ export const Avatar: FC<AvatarProps> = ({ setAuthModal }) => {
     setOpen(false)
   }, [])
 
-  const logoutHandler = useCallback(() => {
-    auth.logout()
-    setAuthModal(false)
-  }, [])
-
   const fistLetter = auth.username?.charAt(0)
 
   return (
@@ -35,21 +30,8 @@ export const Avatar: FC<AvatarProps> = ({ setAuthModal }) => {
     >
       <div className={styles.avatar}>
         <p className={styles.inicials}>{fistLetter}</p>
-        
-        <div className={clsx(styles.menu, { [styles.menuActive]: open })}>
-          <ul>
-            <li className={clsx(styles.listItem, styles.personData)}>
-              {auth.username}
-            </li>
 
-            <li
-              className={clsx(styles.listItem, styles.logout)}
-              onClick={logoutHandler}
-            >
-              logout
-            </li>
-          </ul>
-        </div>
+        <Menu open={open} setAuthModal={setAuthModal} />
       </div>
     </div>
   )

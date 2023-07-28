@@ -7,7 +7,6 @@ import { reviews } from '@/store'
 import { Cards } from './Cards'
 import styles from './Catalog.module.scss'
 
-
 export const Catalog: FC = observer(() => {
   const buttonClickHandler = useCallback(() => {
     reviews.getReviews()
@@ -18,7 +17,7 @@ export const Catalog: FC = observer(() => {
       <Cards />
 
       {reviews.loading && <Loader className={styles.loader} />}
-      
+
       <Button className={styles.more} onClick={buttonClickHandler}>
         More
       </Button>
