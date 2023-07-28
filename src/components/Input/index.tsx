@@ -1,4 +1,4 @@
-import { HTMLAttributes, FC, useRef, useState, forwardRef } from 'react'
+import { HTMLAttributes, FC, useState, forwardRef } from 'react'
 import clsx from 'clsx'
 
 import styles from './Input.module.scss'
@@ -13,15 +13,13 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
   ({ className, label, id, ...props }, input) => {
     const [labelLift, setLabelLift] = useState(false)
 
-    //const input = useRef<HTMLInputElement | null>(null)
-
     const clickCallback = () => {
       setLabelLift(true)
-      input.current?.focus()
+      input?.current.focus()
     }
 
     const labelLiftCheck = () => {
-      if (input.current?.value === '') {
+      if (input?.current?.value === '') {
         input.current?.blur()
         setLabelLift(false)
       }
