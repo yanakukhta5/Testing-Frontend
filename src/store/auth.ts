@@ -1,24 +1,24 @@
-import { makeAutoObservable } from "mobx"
+import { makeAutoObservable } from 'mobx'
 
 class Auth {
- username = localStorage.getItem("login")
+  username = localStorage.getItem('login')
 
- constructor(){
-  makeAutoObservable(this)
- }
+  constructor() {
+    makeAutoObservable(this)
+  }
 
- get isAuthorized(){
-  return Boolean(this.username)
- }
+  get isAuthorized() {
+    return Boolean(this.username)
+  }
 
- login(login: string){
-  this.username = login
- }
+  login(login: string) {
+    this.username = login
+  }
 
- logout(){
-  this.username = ''
-  localStorage.removeItem("login")
- }
+  logout() {
+    this.username = ''
+    localStorage.removeItem('login')
+  }
 }
 
 export const auth = new Auth()
