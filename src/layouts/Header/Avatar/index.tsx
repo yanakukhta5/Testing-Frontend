@@ -1,4 +1,4 @@
-import { FC, useState, useCallback } from 'react'
+import { FC, useState } from 'react'
 
 import { auth } from '@/store'
 import { Menu } from './Menu'
@@ -12,13 +12,13 @@ type AvatarProps = {
 export const Avatar: FC<AvatarProps> = ({ setAuthModal }) => {
   const [open, setOpen] = useState(false)
 
-  const mouseEnterHandler = useCallback(() => {
+  const mouseEnterHandler = () => {
     setOpen(true)
-  }, [])
+  }
 
-  const mouseLeaveHandler = useCallback(() => {
+  const mouseLeaveHandler = () => {
     setOpen(false)
-  }, [])
+  }
 
   const fistLetter = auth.username?.charAt(0)
 

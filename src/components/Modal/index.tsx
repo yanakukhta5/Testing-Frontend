@@ -1,10 +1,4 @@
-import {
-  FC,
-  HTMLAttributes,
-  useRef,
-  useCallback,
-  MouseEventHandler
-} from 'react'
+import { FC, HTMLAttributes, useRef, MouseEventHandler } from 'react'
 import { createPortal } from 'react-dom'
 
 import styles from './Modal.module.scss'
@@ -18,9 +12,9 @@ const portal = document.querySelector('#portal')
 const Content: FC<ContentProps> = ({ setOpen, ...props }) => {
   const overlay = useRef<HTMLDivElement | null>(null)
 
-  const overlayClickHandler = useCallback((event: MouseEvent) => {
+  const overlayClickHandler = (event: MouseEvent) => {
     if (event.target === overlay.current) setOpen(false)
-  }, [])
+  }
 
   return (
     <div

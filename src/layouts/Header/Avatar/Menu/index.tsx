@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react'
+import { FC } from 'react'
 import clsx from 'clsx'
 
 import { auth } from '@/store'
@@ -11,10 +11,11 @@ type MenuProps = {
 }
 
 export const Menu: FC<MenuProps> = ({ open, setAuthModal }) => {
-  const logoutHandler = useCallback(() => {
+  const logoutHandler = () => {
     auth.logout()
     setAuthModal(false)
-  }, [])
+  }
+
   return (
     <div className={clsx(styles.menu, { [styles.menuActive]: open })}>
       <ul>

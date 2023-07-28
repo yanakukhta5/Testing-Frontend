@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo } from 'react'
+import { FC } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { observer } from 'mobx-react-lite'
 
@@ -48,20 +48,14 @@ export const AuthModal: FC<AuthModalProps> = observer(
 
     const shouldRenderChild = useDelayUnmount(shouldRender, 250)
 
-    const mountedStyle = useMemo(
-      () => ({ animation: `${styles.inAnimation} 200ms ease-in` }),
-      []
-    )
-    const unmountedStyle = useMemo(
-      () => ({ animation: `${styles.outAnimation} 250ms ease-in` }),
-      []
-    )
+    const mountedStyle = { animation: `${styles.inAnimation} 200ms ease-in` }
+    const unmountedStyle = { animation: `${styles.outAnimation} 250ms ease-in` }
 
-    const submitHandler = useCallback((data: FormValues) => {
+    const submitHandler = (data: FormValues) => {
       data.rememberUser = Boolean(data.rememberUser)
       if (data.rememberUser) localStorage.setItem('login', data.login)
       auth.login(data.login)
-    }, [])
+    }
 
     return (
       <Modal setOpen={setOpen} {...props}>
