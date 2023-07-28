@@ -1,6 +1,5 @@
 import { FC, FormEventHandler, useCallback, useMemo } from 'react'
 import { observer } from "mobx-react-lite"
-import clsx from 'clsx'
 
 import { Button, Modal, Input, Checkbox } from '@/components'
 import { Close } from '@/assets/svg'
@@ -25,12 +24,10 @@ export const AuthModal: FC<AuthModalProps> = observer(({setOpen, mount, shouldRe
 
   const submitHandler = useCallback((event: MouseEvent) => {
     event.preventDefault()
-    setTimeout(() => {
-      if(auth.isAuthorized) auth.logout()
-      else {
-        auth.login("Yana")
-      }
-    }, 200)
+    if(auth.isAuthorized) auth.logout()
+    else {
+      auth.login("Yana")
+    }
     setOpen(false)
   }, [])
 
@@ -45,14 +42,9 @@ export const AuthModal: FC<AuthModalProps> = observer(({setOpen, mount, shouldRe
       <h2 className={styles.title}>{auth.isAuthorized ? "Log Out" : 'Authorization'}</h2>
       
       <form className={styles.form} onSubmit={submitHandler as unknown as FormEventHandler<HTMLFormElement>}> 
-       {auth.isAuthorized ?
-        <p className={styles.leave}>Are sure you want to leave?</p>
-        : 
-        <>
-          <Input required autoComplete="off" id="login" className={styles.input} label="Login" />
-          <Input required autoComplete="off" id="password" className={styles.input} label="Password" />
-          <Checkbox id='checkbox' label="Remember me on next login" />
-        </>}
+        <Input required autoComplete="off" id="login" className={styles.input} label="Login" />
+        <Input required autoComplete="off" id="password" className={styles.input} label="Password" />
+        <Checkbox id='checkbox' label="Remember me on next login" />
        <Button className={styles.submit} type="submit">{auth.isAuthorized ? 'Sign Out' : 'Sign In'}</Button>
       </form>
 

@@ -1,25 +1,23 @@
 import { makeAutoObservable } from "mobx"
 
 class Auth {
- user = {
-  login: localStorage.getItem("login")
- }
+ username = localStorage.getItem("login")
 
  constructor(){
   makeAutoObservable(this)
  }
 
  get isAuthorized(){
-  return Boolean(this.user.login)
+  return Boolean(this.username)
  }
 
  login(login: string){
-  this.user.login = login
+  this.username = login
   localStorage.setItem("login", login)
  }
 
  logout(){
-  this.user.login = ''
+  this.username = ''
   localStorage.removeItem("login")
  }
 }

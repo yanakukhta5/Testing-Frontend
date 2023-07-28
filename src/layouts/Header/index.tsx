@@ -6,6 +6,7 @@ import { auth } from '@/store'
 import { useDelayUnmount } from '@/hooks'
 
 import { AuthModal } from './AuthModal'
+import { Avatar } from './Avatar'
 import styles from './Header.module.scss'
 
 export const Header: FC = observer(() => {
@@ -23,7 +24,7 @@ export const Header: FC = observer(() => {
  return (
   <header className={styles.header}>
 
-   <Button onClick={buttonClickHandler}>{auth.isAuthorized ? "Sign Out" : "Sign In"}</Button>
+   {auth.isAuthorized ? <Avatar /> : <Button onClick={buttonClickHandler}>Sign In</Button> }
    
    { shouldRenderChild && <AuthModal mount={isModalMounted} shouldRender={shouldRenderChild} setOpen={setIsModalMounted as () => void} style={isModalMounted ? mountedStyle : unmountedStyle } /> }
    

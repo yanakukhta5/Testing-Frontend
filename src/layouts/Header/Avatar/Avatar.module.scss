@@ -1,0 +1,58 @@
+.wrapper {
+ padding: 0px 10px 10px 10px;
+ margin-bottom: -10px;
+}
+
+.avatar {
+ width: 50px;
+ aspect-ratio: 1 / 1;
+ border-radius: 50%;
+ background-color: var(--primary-color);
+ display: grid;
+ place-items: center;
+ position: relative;
+ cursor: pointer;
+ padding: 10px;
+}
+
+.inicials {
+ color: #ffffff;
+}
+
+.menu {
+ position: absolute;
+ border-radius: 6px;
+ background-color: var(--primary-color);
+ top: calc(100% + 10px);
+ right: 0;
+ z-index: 20;
+ transition: var(--fast);
+ opacity: 0;
+ visibility: hidden;
+}
+
+.menuActive {
+ opacity: 1;
+ visibility: visible;
+}
+
+.listItem {
+ --color: #000000;
+ padding: 10px 15px;
+ transition: var(--fast);
+ color: var(--color);
+
+ &:hover {
+  color: #ffffff;
+ }
+}
+
+.personData {
+ &:hover {
+  color: var(--color);
+ }
+}
+
+.logout {
+ border-top: 1px solid #434343;
+}

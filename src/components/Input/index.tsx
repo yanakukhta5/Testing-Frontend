@@ -1,5 +1,5 @@
 import { HTMLAttributes, FC, useRef,
- useCallback, useState, useEffect } from 'react'
+ useCallback, useState } from 'react'
 import clsx from 'clsx'
 
 import styles from './Input.module.scss'
@@ -28,18 +28,9 @@ export const Input: FC<InputProps> = ({className, label, id, ...props}) => {
    setLabelLift(false)
   }
  }, [])
-
- useEffect(() => {
-  const elem = input.current
-  elem?.addEventListener('blur', labelLiftCheck)
-
-  return () => {
-   elem?.removeEventListener('blur', labelLiftCheck)
-  }
- }, [labelLiftCheck])
  
  return (
-  <div className={styles.wrapper} onClick={clickCallback}>
+  <div onBlur={labelLiftCheck} className={styles.wrapper} onClick={clickCallback}>
    <label className={clsx({[styles.liftedInput]: labelLift}, styles.label)} htmlFor={id}>{label}</label>
    <input className={clsx(styles.input, className)} ref={input} id={id} {...props}  />
   </div>

@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes, useEffect, useRef, useCallback } from 'react'
+import { FC, HTMLAttributes, useRef, useCallback, MouseEventHandler } from 'react'
 import { createPortal } from 'react-dom'
 
 import styles from './Modal.module.scss'
@@ -17,16 +17,12 @@ const Content: FC<ContentProps> = ({setOpen, ...props}) => {
    if(event.target === overlay.current) setOpen(false)
   }, [])
 
- useEffect(() => {
-  overlay.current?.addEventListener("mousedown", overlayClickHandler)
-
-  return () => {
-   overlay.current?.addEventListener("mousedown", overlayClickHandler)
-  }
- }, [])
-
  return (
-  <div className={styles.overlay} ref={overlay} {...props}/>
+  <div 
+   onMouseDown={overlayClickHandler as unknown as MouseEventHandler<HTMLDivElement>}
+   className={styles.overlay}
+   ref={overlay}
+   {...props} />
  )
 }
 
