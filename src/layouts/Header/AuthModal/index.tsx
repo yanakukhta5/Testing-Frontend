@@ -26,7 +26,8 @@ const textInputRules = {
   required: 'Please enter data',
   pattern: {
     value: /^[a-zA-Z0-9_]+$/,
-    message: 'Invalid data: only letters, numbers and underscore allowed'
+    message:
+      'Invalid data: only english letters, numbers and underscore allowed'
   },
   maxLength: {
     value: 40,
