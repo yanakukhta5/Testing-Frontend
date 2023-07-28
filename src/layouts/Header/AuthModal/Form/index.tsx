@@ -35,7 +35,14 @@ export const Form: FC = observer(() => {
     handleSubmit,
     control,
     formState: { errors }
-  } = useForm<FormValues>({ mode: 'onBlur' })
+  } = useForm<FormValues>({
+    mode: 'onBlur',
+    defaultValues: {
+      login: '',
+      password: '',
+      rememberUser: false
+    }
+  })
 
   const submitHandler = (data: FormValues) => {
     data.rememberUser = Boolean(data.rememberUser)

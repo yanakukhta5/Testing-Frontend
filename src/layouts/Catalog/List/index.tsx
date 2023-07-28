@@ -12,7 +12,7 @@ export const List: FC = observer(() => {
   return (
     <div className={styles.cards}>
       {reviews.data.map((review) => (
-        <Item review={review} />
+        <Item review={review} key={review.id} />
       ))}
     </div>
   )

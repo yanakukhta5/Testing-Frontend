@@ -1,4 +1,4 @@
-import { HTMLAttributes, FC, useRef, useState } from 'react'
+import { HTMLAttributes, FC, useRef, useState, forwardRef } from 'react'
 import clsx from 'clsx'
 
 import styles from './Input.module.scss'
@@ -9,42 +9,44 @@ type InputProps = HTMLAttributes<HTMLInputElement> & {
   autoComplete?: 'on' | 'off'
 }
 
-export const Input: FC<InputProps> = ({ className, label, id, ...props }) => {
-  const [labelLift, setLabelLift] = useState(false)
+export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
+  ({ className, label, id, ...props }, input) => {
+    const [labelLift, setLabelLift] = useState(false)
 
-  const input = useRef<HTMLInputElement | null>(null)
+    //const input = useRef<HTMLInputElement | null>(null)
 
-  const clickCallback = () => {
-    setLabelLift(true)
-    input.current?.focus()
-  }
-
-  const labelLiftCheck = () => {
-    if (input.current?.value === '') {
-      input.current?.blur()
-      setLabelLift(false)
+    const clickCallback = () => {
+      setLabelLift(true)
+      input.current?.focus()
     }
-  }
 
-  return (
-    <div
-      onBlur={labelLiftCheck}
-      className={styles.wrapper}
-      onClick={clickCallback}
-    >
-      <input
-        className={clsx(styles.input, className)}
-        ref={input}
-        id={id}
-        {...props}
-      />
+    const labelLiftCheck = () => {
+      if (input.current?.value === '') {
+        input.current?.blur()
+        setLabelLift(false)
+      }
+    }
 
-      <label
-        className={clsx({ [styles.liftedInput]: labelLift }, styles.label)}
-        htmlFor={id}
+    return (
+      <div
+        onBlur={labelLiftCheck}
+        className={styles.wrapper}
+        onClick={clickCallback}
       >
-        {label}
-      </label>
-    </div>
-  )
-}
+        <input
+          className={clsx(styles.input, className)}
+          ref={input}
+          id={id}
+          {...props}
+        />
+
+        <label
+          className={clsx({ [styles.liftedInput]: labelLift }, styles.label)}
+          htmlFor={id}
+        >
+          {label}
+        </label>
+      </div>
+    )
+  }
+)
