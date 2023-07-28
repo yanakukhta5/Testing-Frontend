@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { CSSProperties, Dispatch, FC, SetStateAction } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { observer } from 'mobx-react-lite'
 
@@ -10,8 +10,8 @@ import { useDelayUnmount } from '@/hooks'
 import styles from './AuthModal.module.scss'
 
 type AuthModalProps = {
-  style: any
-  setOpen: (a: boolean) => void
+  style: CSSProperties
+  setOpen: Dispatch<SetStateAction<boolean>>
   shouldRender: boolean
   mount: boolean
 }
@@ -54,8 +54,7 @@ export const AuthModal: FC<AuthModalProps> = observer(
 
     const submitHandler = (data: FormValues) => {
       data.rememberUser = Boolean(data.rememberUser)
-      if (data.rememberUser) localStorage.setItem('login', data.login)
-      auth.login(data.login)
+      auth.login(data.login, data.rememberUser)
     }
 
     return (

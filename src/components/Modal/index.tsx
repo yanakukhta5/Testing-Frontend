@@ -12,15 +12,13 @@ const portal = document.querySelector('#portal')
 const Content: FC<ContentProps> = ({ setOpen, ...props }) => {
   const overlay = useRef<HTMLDivElement | null>(null)
 
-  const overlayClickHandler = (event: MouseEvent) => {
+  const overlayClickHandler: MouseEventHandler<HTMLDivElement> = (event) => {
     if (event.target === overlay.current) setOpen(false)
   }
 
   return (
     <div
-      onMouseDown={
-        overlayClickHandler as unknown as MouseEventHandler<HTMLDivElement>
-      }
+      onMouseDown={overlayClickHandler}
       className={styles.overlay}
       ref={overlay}
       {...props}

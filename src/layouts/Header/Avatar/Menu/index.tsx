@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 import clsx from 'clsx'
 
 import { auth } from '@/store'
@@ -7,7 +7,7 @@ import styles from './Menu.module.scss'
 
 type MenuProps = {
   open: boolean
-  setAuthModal: (a: boolean) => void
+  setAuthModal: Dispatch<SetStateAction<boolean>>
 }
 
 export const Menu: FC<MenuProps> = ({ open, setAuthModal }) => {
@@ -17,14 +17,14 @@ export const Menu: FC<MenuProps> = ({ open, setAuthModal }) => {
   }
 
   return (
-    <div className={clsx(styles.menu, { [styles.menuActive]: open })}>
+    <div className={clsx(styles.menu, { [styles.active]: open })}>
       <ul>
-        <li className={clsx(styles.listItem, styles.personData)}>
+        <li className={styles.personData}>
           {auth.username}
         </li>
 
         <li
-          className={clsx(styles.listItem, styles.logout)}
+          className={styles.logout}
           onClick={logoutHandler}
         >
           logout

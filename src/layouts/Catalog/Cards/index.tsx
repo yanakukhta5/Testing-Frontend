@@ -8,10 +8,11 @@ import { getRandomNumberFromRange } from '@/utils'
 import styles from './Cards.module.scss'
 
 export const Cards: FC = observer(() => {
+  if(!reviews.data) return null
+
   return (
     <div className={styles.cards}>
-      {reviews.data &&
-        reviews.data.map((review) => {
+      {reviews.data.map((review) => {
           const grade = getRandomNumberFromRange(1, 5)
 
           return (
@@ -24,6 +25,7 @@ export const Cards: FC = observer(() => {
             >
               <div className={styles.comment}>
                 <p className={styles.text}>{review.body}</p>
+                
                 <Button className={styles.button}>Visit comment</Button>
               </div>
             </Card>

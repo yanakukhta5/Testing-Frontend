@@ -1,4 +1,5 @@
 .menu {
+ --color: #000000;
  position: absolute;
  border-radius: 6px;
  background-color: var(--primary-color);
@@ -8,28 +9,26 @@
  transition: var(--fast);
  opacity: 0;
  visibility: hidden;
-}
 
-.menuActive {
- opacity: 1;
- visibility: visible;
-}
-
-.listItem {
- --color: #000000;
+ & li {
  padding: 10px 15px;
  transition: var(--fast);
  color: var(--color);
 
- &:hover {
-  color: #ffffff;
+  &.personData:hover {
+   color: var(--color);
+  }
+
+  &:hover {
+   color: #ffffff;
+  }
+
  }
 }
 
-.personData {
- &:hover {
-  color: var(--color);
- }
+.active {
+ opacity: 1;
+ visibility: visible;
 }
 
 .logout {

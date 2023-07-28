@@ -1,12 +1,12 @@
-import { FC, useState } from 'react'
+import { Dispatch, FC, SetStateAction, useState } from 'react'
 
 import { auth } from '@/store'
-import { Menu } from './Menu'
 
+import { Menu } from './Menu'
 import styles from './Avatar.module.scss'
 
 type AvatarProps = {
-  setAuthModal: (a: boolean) => void
+  setAuthModal: Dispatch<SetStateAction<boolean>>
 }
 
 export const Avatar: FC<AvatarProps> = ({ setAuthModal }) => {

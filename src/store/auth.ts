@@ -11,7 +11,8 @@ class Auth {
     return Boolean(this.username)
   }
 
-  login(login: string) {
+  login(login: string, isRemember: boolean) {
+    if(isRemember) localStorage.setItem('login', login)
     this.username = login
   }
 

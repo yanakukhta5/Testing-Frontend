@@ -1,11 +1,11 @@
 :root {
- --font-family: "Roboto", Helvetica, sans-serif;
+ --primary-font: "Roboto", Helvetica, sans-serif;
  --primary-color: #7469f3;
  --fast: all 0.15s ease-in-out
 }
 
 body {
- font-family: var(--font-family);
+ font-family: var(--primary-font);
  font-weight: 500;
  position: relative;
 }

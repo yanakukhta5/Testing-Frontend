@@ -2,7 +2,7 @@ import { makeAutoObservable, runInAction } from 'mobx'
 
 import { placeholder, TComment, TPhoto } from '@/services'
 
-type TSingleReview = TComment & TPhoto
+type TReview = TComment & TPhoto
 
 class Reviews {
   start = 0
@@ -11,17 +11,20 @@ class Reviews {
 
   comments: TComment[] = []
   photos: TPhoto[] = []
-  data: TSingleReview[] = []
+  data: TReview[] = []
 
   constructor() {
     makeAutoObservable(this)
+
     this.getReviews()
   }
 
   async getReviews() {
     this.loading = true
+
     const photos = await placeholder.getPhotos(this.start, this.limit)
     const comments = await placeholder.getComments(this.start, this.limit)
+
     this.start = this.start + 3
 
     runInAction(() => {

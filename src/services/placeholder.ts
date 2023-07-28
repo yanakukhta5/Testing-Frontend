@@ -21,14 +21,14 @@ export class Placeholder {
     this.url = url
   }
 
-  async getComments(
+  private async getResource<T>(
     start: number,
     limit: number,
-    endpoint: string = 'comments'
-  ): Promise<TComment[]> {
+    endpoint: string
+  ): Promise<T[]> {
     const response = await fetch(
       `${this.url}/${endpoint}?` +
-        new URLSearchParams({
+      new URLSearchParams({
           _start: start.toString(),
           _limit: limit.toString()
         })
@@ -36,19 +36,18 @@ export class Placeholder {
     return await response.json()
   }
 
-  async getPhotos(
+  async getComments(
     start: number,
     limit: number,
-    endpoint: string = 'photos'
+  ): Promise<TComment[]> {
+    return await this.getResource<TComment>(start, limit, "comments")
+  }
+
+  async getPhotos(
+    start: number,
+    limit: number
   ): Promise<TPhoto[]> {
-    const response = await fetch(
-      `${this.url}/${endpoint}?` +
-        new URLSearchParams({
-          _start: start.toString(),
-          _limit: limit.toString()
-        })
-    )
-    return await response.json()
+    return await this.getResource<TPhoto>(start, limit, "photos")
   }
 }
 

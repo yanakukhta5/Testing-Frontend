@@ -1,4 +1,4 @@
-import { FC, useState, useCallback, useMemo } from 'react'
+import { FC, useState, useCallback, CSSProperties } from 'react'
 import { observer } from 'mobx-react-lite'
 
 import { auth } from '@/store'
@@ -9,21 +9,21 @@ import { AuthModal } from './AuthModal'
 import { Avatar } from './Avatar'
 import styles from './Header.module.scss'
 
+const modalStyles = {
+  mounted: {
+    animation: `${styles.inAnimation} 200ms ease-in`
+  },
+  unmounted: {
+    animation:  `${styles.outAnimation} 250ms ease-in`
+  }
+}
+
 export const Header: FC = observer(() => {
   const [isModalMounted, setIsModalMounted] = useState<boolean>(false)
 
   const shouldRenderChild = useDelayUnmount(
     isModalMounted && !auth.isAuthorized,
     200
-  )
-
-  const mountedStyle = useMemo(
-    () => ({ animation: `${styles.inAnimation} 200ms ease-in` }),
-    []
-  )
-  const unmountedStyle = useMemo(
-    () => ({ animation: `${styles.outAnimation} 250ms ease-in` }),
-    []
   )
 
   const buttonClickHandler = useCallback(() => {
@@ -42,8 +42,8 @@ export const Header: FC = observer(() => {
         <AuthModal
           mount={isModalMounted}
           shouldRender={shouldRenderChild}
-          setOpen={setIsModalMounted as () => void}
-          style={isModalMounted ? mountedStyle : unmountedStyle}
+          setOpen={setIsModalMounted}
+          style={isModalMounted ? modalStyles.mounted : modalStyles.unmounted}
         />
       )}
     </header>

@@ -6,7 +6,7 @@ import styles from './Input.module.scss'
 type InputProps = HTMLAttributes<HTMLInputElement> & {
   id: string
   label?: string
-  autoComplete?: 'on' | 'off'
+  autoComplete?: 'on' | 'off' 
 }
 
 export const Input: FC<InputProps> = ({ className, label, id, ...props }) => {
@@ -32,18 +32,20 @@ export const Input: FC<InputProps> = ({ className, label, id, ...props }) => {
       className={styles.wrapper}
       onClick={clickCallback}
     >
-      <label
-        className={clsx({ [styles.liftedInput]: labelLift }, styles.label)}
-        htmlFor={id}
-      >
-        {label}
-      </label>
       <input
         className={clsx(styles.input, className)}
         ref={input}
         id={id}
         {...props}
       />
+      
+      <label
+        className={clsx({ [styles.liftedInput]: labelLift }, styles.label)}
+        htmlFor={id}
+      >
+        {label}
+      </label>
+      
     </div>
   )
 }

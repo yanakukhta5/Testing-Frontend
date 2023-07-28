@@ -30,6 +30,7 @@ export const Card: FC<CardProps> = ({
           {graide && (
             <div className={styles.rateBlock}>
               <p className={styles.graide}>{graide}</p>
+              
               <Star className={styles.star} />
             </div>
           )}

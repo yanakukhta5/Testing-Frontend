@@ -1,11 +1,9 @@
-import { FC, HTMLAttributes } from 'react'
+import { FC, ButtonHTMLAttributes } from 'react'
 import clsx from 'clsx'
 
 import styles from './Button.module.scss'
 
-type ButtonProps = HTMLAttributes<HTMLButtonElement> & {
-  type?: 'button' | 'reset' | 'submit'
-}
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> 
 
 export const Button: FC<ButtonProps> = ({ className, ...props }) => {
   return <button className={clsx(styles.button, className)} {...props}></button>

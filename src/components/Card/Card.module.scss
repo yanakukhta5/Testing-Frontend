@@ -6,10 +6,8 @@
  position: relative;
  color: #ffffff;
 
- &:hover {
-  .text {
-   bottom: 0;
-  }
+ &:hover .text {
+  bottom: 0;
  } 
 }
 
@@ -45,7 +43,7 @@
 }
 
 .title {
- font-family: var(--font-family);
+ font-family: var(--primary-font);
  font-weight: 700;
  font-size: 18px;
  position: relative;
