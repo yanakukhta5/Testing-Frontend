@@ -12,7 +12,7 @@ import styles from './Header.module.scss'
 export const Header: FC = observer(() => {
  const [isModalMounted, setIsModalMounted] = useState<boolean>(false)
 
- const shouldRenderChild = useDelayUnmount(isModalMounted, 200)
+ const shouldRenderChild = useDelayUnmount(isModalMounted && !auth.isAuthorized, 200)
  
  const mountedStyle = useMemo(() => ({ animation: `${styles.inAnimation} 200ms ease-in` }), [])
  const unmountedStyle = useMemo(() => ({ animation: `${styles.outAnimation} 250ms ease-in` }), [])
@@ -24,9 +24,9 @@ export const Header: FC = observer(() => {
  return (
   <header className={styles.header}>
 
-   {auth.isAuthorized ? <Avatar /> : <Button onClick={buttonClickHandler}>Sign In</Button> }
+   {auth.isAuthorized ? <Avatar setAuthModal={setIsModalMounted} /> : <Button onClick={buttonClickHandler}>Sign In</Button> }
    
-   { shouldRenderChild && <AuthModal mount={isModalMounted} shouldRender={shouldRenderChild} setOpen={setIsModalMounted as () => void} style={isModalMounted ? mountedStyle : unmountedStyle } /> }
+   {!auth.isAuthorized && shouldRenderChild && <AuthModal mount={isModalMounted} shouldRender={shouldRenderChild} setOpen={setIsModalMounted as () => void} style={isModalMounted ? mountedStyle : unmountedStyle } /> }
    
   </header>
  )

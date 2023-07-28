@@ -13,7 +13,6 @@ class Auth {
 
  login(login: string){
   this.username = login
-  localStorage.setItem("login", login)
  }
 
  logout(){
