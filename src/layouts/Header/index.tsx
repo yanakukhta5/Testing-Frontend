@@ -14,7 +14,7 @@ const modalStyles = {
     animation: `${styles.inAnimation} 200ms ease-in`
   },
   unmounted: {
-    animation:  `${styles.outAnimation} 250ms ease-in`
+    animation: `${styles.outAnimation} 250ms ease-in`
   }
 }
 

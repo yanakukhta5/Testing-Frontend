@@ -7,13 +7,13 @@ import styles from './Card.module.scss'
 
 type CardProps = HTMLAttributes<HTMLDivElement> & {
   title: string
-  graide?: number
+  grade?: number
   imgSrc: string
 }
 
 export const Card: FC<CardProps> = ({
   title,
-  graide,
+  grade,
   children,
   className,
   imgSrc,
@@ -27,10 +27,10 @@ export const Card: FC<CardProps> = ({
         <div className={styles.top}>
           <h2 className={styles.title}>{title}</h2>
 
-          {graide && (
+          {grade && (
             <div className={styles.rateBlock}>
-              <p className={styles.graide}>{graide}</p>
-              
+              <p className={styles.grade}>{grade}</p>
+
               <Star className={styles.star} />
             </div>
           )}

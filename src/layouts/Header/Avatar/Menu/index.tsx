@@ -19,14 +19,9 @@ export const Menu: FC<MenuProps> = ({ open, setAuthModal }) => {
   return (
     <div className={clsx(styles.menu, { [styles.active]: open })}>
       <ul>
-        <li className={styles.personData}>
-          {auth.username}
-        </li>
+        <li className={styles.personData}>{auth.username}</li>
 
-        <li
-          className={styles.logout}
-          onClick={logoutHandler}
-        >
+        <li className={styles.logout} onClick={logoutHandler}>
           logout
         </li>
       </ul>

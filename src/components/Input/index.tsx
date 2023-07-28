@@ -6,7 +6,7 @@ import styles from './Input.module.scss'
 type InputProps = HTMLAttributes<HTMLInputElement> & {
   id: string
   label?: string
-  autoComplete?: 'on' | 'off' 
+  autoComplete?: 'on' | 'off'
 }
 
 export const Input: FC<InputProps> = ({ className, label, id, ...props }) => {
@@ -38,14 +38,13 @@ export const Input: FC<InputProps> = ({ className, label, id, ...props }) => {
         id={id}
         {...props}
       />
-      
+
       <label
         className={clsx({ [styles.liftedInput]: labelLift }, styles.label)}
         htmlFor={id}
       >
         {label}
       </label>
-      
     </div>
   )
 }

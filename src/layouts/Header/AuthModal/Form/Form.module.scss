@@ -1,0 +1,38 @@
+.form {
+ display: flex;
+ flex-direction: column;
+}
+
+.input {
+ width: 100%;
+ margin-bottom: 25px;
+}
+
+.submit {
+ margin-top: 44px
+}
+
+.error {
+  color: rgb(240 97 97);
+  position: relative;
+  font-size: 14px;
+  top: -17px;
+}
+
+@keyframes inAnimation {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes outAnimation {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 0;
+  }
+}

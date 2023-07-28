@@ -12,7 +12,7 @@ class Auth {
   }
 
   login(login: string, isRemember: boolean) {
-    if(isRemember) localStorage.setItem('login', login)
+    if (isRemember) localStorage.setItem('login', login)
     this.username = login
   }
 

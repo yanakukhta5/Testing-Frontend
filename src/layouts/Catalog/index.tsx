@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite'
 import { Button, Loader } from '@/components'
 import { reviews } from '@/store'
 
-import { Cards } from './Cards'
+import { List } from './List'
 import styles from './Catalog.module.scss'
 
 export const Catalog: FC = observer(() => {
@@ -14,7 +14,7 @@ export const Catalog: FC = observer(() => {
 
   return (
     <main className={styles.catalog}>
-      <Cards />
+      <List />
 
       {reviews.loading && <Loader className={styles.loader} />}
 
