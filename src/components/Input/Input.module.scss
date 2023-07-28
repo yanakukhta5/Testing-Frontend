@@ -1,12 +1,10 @@
 .input {
- width: 385px;
- border: 2px solid #7469F3;
+ border: 2px solid var(--primary-color);
  border-radius: 6px;
  padding: 17px 20px 13px 20px;
  outline: none;
  font-size: 18px;
  font-weight: 400;
- color: #434343;
  color: #615f5f;
 }
 
@@ -17,7 +15,7 @@
  position: absolute;
  top: 17px;
  left: 20px;
- transition: all 0.15s ease-in-out;
+ transition: var(--fast);
  cursor: text;
 }
 

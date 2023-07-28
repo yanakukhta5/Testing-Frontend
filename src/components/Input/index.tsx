@@ -7,7 +7,8 @@ import styles from './Input.module.scss'
 type InputProps = HTMLAttributes<HTMLInputElement> & {
  id: string
  label?: string
- autocomplete?: 'on' | 'off'
+ required: boolean
+ autoComplete?: 'on' | 'off'
 }
 
 export const Input: FC<InputProps> = ({className, label, id, ...props}) => {

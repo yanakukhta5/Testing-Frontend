@@ -37,6 +37,7 @@ export class Placeholder {
   }))
   return await response.json()
  }
+
 }
 
 export const placeholder = new Placeholder('https://jsonplaceholder.typicode.com')

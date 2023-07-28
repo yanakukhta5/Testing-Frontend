@@ -1,17 +1,25 @@
-import { FC } from 'react'
+import { FC, useCallback } from 'react'
+import { observer } from 'mobx-react-lite'
 
 import styles from './Catalog.module.scss'
+
 import { Button, Loader } from '@/components'
+import { reviews } from '@/store'
 
 import { Cards } from './Cards'
 
-export const Catalog: FC = () => {
+export const Catalog: FC = observer(() => {
+ 
+ const buttonClickHandler = useCallback(() => {
+  reviews.getReviews()
+ }, [])
+
  return (
   <main className={styles.catalog}>
    <Cards /> 
 
-   <Loader className={styles.loader} />
-   <Button className={styles.more}>More</Button>
+   { reviews.loading && <Loader className={styles.loader} /> }
+   <Button className={styles.more} onClick={buttonClickHandler}>More</Button>
   </main>
  )
-}
+})

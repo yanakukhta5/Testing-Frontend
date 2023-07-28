@@ -18,7 +18,7 @@
   aspect-ratio: 1 / 1;
   border-radius: 3px;
   border: 2px solid #ffffff;
-  box-shadow: 0 0 0 2px #7469F3;
+  box-shadow: 0 0 0 2px var(--primary-color);
   left: 2px;
  }
 }
@@ -29,7 +29,7 @@
 
  &:checked {
   & + .label::before {
-   background-color: #7469F3;
+   background-color: var(--primary-color);
   }
  }
 }

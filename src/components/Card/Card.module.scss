@@ -48,8 +48,16 @@
  font-family: var(--font-family);
  font-weight: 700;
  font-size: 18px;
- display: flex;
- align-items: center;
+ position: relative;
+ bottom: -4px;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ overflow: hidden;
+ padding-right: 30px;
+
+ @media (max-width: 780px) {
+  font-size: 14px;
+ }
 }
 
 .rateBlock {

@@ -1,10 +1,22 @@
 .button {
  border-radius: 6px;
- background: #7469F3;
+ background: var(--primary-color);
  color: #ffffff;
  border: 0;
  min-width: 218px;
  padding: 13px 50px;
  font-family: var(--font-family);
  font-weight: 500;
+ cursor: pointer;
+ transition: var(--fast);
+ position: relative;
+ z-index: 3;
+
+ &:hover {
+  background-color:#8a80f6;
+ }
+
+ &:active {
+  background-color: #6355f8;
+ }
 }

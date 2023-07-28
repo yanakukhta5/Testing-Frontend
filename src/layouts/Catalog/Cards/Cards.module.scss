@@ -4,6 +4,15 @@
  grid-gap: 25px;
  justify-content: space-between;
  margin-bottom: 40px;
+ justify-items: center;
+
+ @media (max-width: 850px) {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+ }
+
+ @media (max-width: 380px){
+  grid-template-columns: 1fr;
+ }
 }
 
 .card {
@@ -20,7 +29,8 @@
  flex-direction: column;
  justify-content: space-between;
  flex-grow: 1;
- overflow: auto;
+ overflow-y: auto;
+ overflow-x: hidden;
 }
 
 .text {
@@ -29,8 +39,18 @@
  font-size: 18px;
  font-weight: 500;
  margin-bottom: 20px;
+
+ @media (max-width: 350px) {
+  font-size: 14px;
+ }
 }
 
 .button {
  width: 218px;
+
+ @media (max-width: 350px) {
+  width: unset;
+  min-width: unset;
+  padding: 15px 15px;
+ }
 }
