@@ -1,8 +1,9 @@
 import { makeAutoObservable, runInAction } from 'mobx'
 
 import { placeholder, TComment, TPhoto } from '@/services'
+import { getRandomNumberFromRange } from '@/utils'
 
-type TReview = TComment & TPhoto
+export type TReview = TComment & TPhoto & { grade: number }
 
 class Reviews {
   start = 0
@@ -33,7 +34,7 @@ class Reviews {
 
       this.comments.forEach((elem, index) => {
         if (this.start < index + this.limit + 1)
-          this.data.push(Object.assign({}, elem, this.photos[index]))
+          this.data.push(Object.assign({}, elem, this.photos[index], {grade: getRandomNumberFromRange(1, 5)}))
       })
 
       this.loading = false

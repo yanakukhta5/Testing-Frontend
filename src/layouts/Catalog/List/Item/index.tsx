@@ -1,25 +1,19 @@
 import { FC } from 'react'
 
 import { Card, Button } from '@/components'
-import { getRandomNumberFromRange } from '@/utils'
+import { TReview } from '@/store'
 
 import styles from './Item.module.scss'
 
 type ItemProps = {
-  review: {
-    email: string
-    url: string
-    id: number
-    body: string
-  }
+  review: TReview
 }
 
 export const Item: FC<ItemProps> = ({ review }) => {
-  const grade = getRandomNumberFromRange(1, 5)
   return (
     <Card
       title={review.email}
-      grade={grade}
+      grade={review.grade}
       className={styles.card}
       imgSrc={review.url}
       key={review.id}
