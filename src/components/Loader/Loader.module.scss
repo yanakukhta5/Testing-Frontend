@@ -32,10 +32,10 @@
 }
 
 @keyframes rotateX {
-  from {
-    transform: rotateZ(0deg);
-  }
-  to {
-    transform: rotateZ(360deg);
-  }
+ from {
+  transform: rotateZ(0deg);
+ }
+ to {
+  transform: rotateZ(360deg);
+ }
 }
