@@ -18,21 +18,3 @@
   font-size: 14px;
   top: -17px;
 }
-
-@keyframes inAnimation {
-  0% {
-    scale: 0;
-  }
-  100% {
-    scale: 1;
-  }
-}
-
-@keyframes outAnimation {
-  0% {
-    scale: 1;
-  }
-  100% {
-    scale: 0;
-  }
-}
