@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, Dispatch, SetStateAction } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { observer } from 'mobx-react-lite'
 
@@ -6,6 +6,10 @@ import { Button, Input, Checkbox } from '@/components'
 import { auth } from '@/store'
 
 import styles from './Form.module.scss'
+
+type FormProps = {
+  setOpen: Dispatch<SetStateAction<boolean>>
+}
 
 type FormValues = {
   login: string
@@ -30,7 +34,7 @@ const textInputRules = {
   }
 }
 
-export const Form: FC = observer(() => {
+export const Form: FC<FormProps> = observer(({setOpen}) => {
   const {
     handleSubmit,
     control,
@@ -47,6 +51,7 @@ export const Form: FC = observer(() => {
   const submitHandler = (data: FormValues) => {
     data.rememberUser = Boolean(data.rememberUser)
     auth.login(data.login, data.rememberUser)
+    setOpen(false)
   }
 
   return (

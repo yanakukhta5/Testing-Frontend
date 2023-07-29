@@ -1,4 +1,4 @@
-import { FC, useState, useCallback, CSSProperties } from 'react'
+import { FC, useState, useCallback } from 'react'
 import { observer } from 'mobx-react-lite'
 
 import { auth } from '@/store'
@@ -14,7 +14,7 @@ const modalStyles = {
     animation: `${styles.inAnimation} 200ms ease-in`
   },
   unmounted: {
-    animation: `${styles.outAnimation} 250ms ease-in`
+    animation: `${styles.outAnimation} 200ms ease-in`
   }
 }
 
@@ -38,7 +38,7 @@ export const Header: FC = observer(() => {
         <Button onClick={buttonClickHandler}>Sign In</Button>
       )}
 
-      {!auth.isAuthorized && shouldRenderChild && (
+      {shouldRenderChild && (
         <AuthModal
           mount={isModalMounted}
           shouldRender={shouldRenderChild}

@@ -15,7 +15,7 @@ type AuthModalProps = {
 }
 
 const mountedStyle = { animation: `${styles.inAnimation} 200ms ease-in` }
-const unmountedStyle = { animation: `${styles.outAnimation} 250ms ease-in` }
+const unmountedStyle = { animation: `${styles.outAnimation} 200ms ease-in` }
 
 export const AuthModal: FC<AuthModalProps> = ({
   setOpen,
@@ -23,7 +23,7 @@ export const AuthModal: FC<AuthModalProps> = ({
   shouldRender,
   ...props
 }) => {
-  const shouldRenderChild = useDelayUnmount(shouldRender, 250)
+  const shouldRenderChild = useDelayUnmount(shouldRender, 190)
 
   return (
     <Modal setOpen={setOpen} {...props}>
@@ -38,7 +38,7 @@ export const AuthModal: FC<AuthModalProps> = ({
 
           <h2 className={styles.title}>Authorization</h2>
 
-          <Form />
+          <Form setOpen={setOpen} />
         </div>
       )}
     </Modal>
