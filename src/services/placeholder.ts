@@ -15,11 +15,7 @@ export type TPhoto = {
 }
 
 export class Placeholder {
-  readonly url: string
-
-  constructor(url: string) {
-    this.url = url
-  }
+  readonly url: string = 'https://jsonplaceholder.typicode.com'
 
   private async getResource<T>(
     start: number,
@@ -45,6 +41,4 @@ export class Placeholder {
   }
 }
 
-export const placeholder = new Placeholder(
-  'https://jsonplaceholder.typicode.com'
-)
+export const placeholder = new Placeholder()
