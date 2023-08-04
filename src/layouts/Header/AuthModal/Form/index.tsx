@@ -73,7 +73,7 @@ export const Form: FC<FormProps> = observer(({setOpen}) => {
           )
         }}
       />
-      {errors.login && <p className={styles.error}>{errors.login.message}</p>}
+      <p className={styles.error}>{errors.login && errors.login.message}</p>
 
       <Controller
         control={control}
@@ -84,6 +84,7 @@ export const Form: FC<FormProps> = observer(({setOpen}) => {
           return (
             <Input
               {...field}
+              type="password"
               autoComplete="off"
               id="password"
               className={styles.input}
@@ -92,9 +93,7 @@ export const Form: FC<FormProps> = observer(({setOpen}) => {
           )
         }}
       />
-      {errors.password && (
-        <p className={styles.error}>{errors.password.message}</p>
-      )}
+      <p className={styles.error}>{errors.password && errors.password.message}</p>
 
       <Controller
         control={control}

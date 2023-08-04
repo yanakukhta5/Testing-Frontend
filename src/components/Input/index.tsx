@@ -1,18 +1,16 @@
 import {
-  HTMLAttributes,
   FC,
   useState,
   forwardRef,
-  MutableRefObject
+  MutableRefObject,
+  InputHTMLAttributes
 } from 'react'
 import clsx from 'clsx'
 
 import styles from './Input.module.scss'
 
-type InputProps = HTMLAttributes<HTMLInputElement> & {
-  id: string
-  label?: string
-  autoComplete?: 'on' | 'off'
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+  label: string
 }
 
 export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
